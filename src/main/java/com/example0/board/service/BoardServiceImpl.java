@@ -18,6 +18,7 @@ public class BoardServiceImpl implements BoardService {
     public void insertBoard(BoardRequest boardRequest) {
         boardRepository.save(boardRequest.toEntity());
     }
+    //
 
     @Override
     public List<Board> getBoards() {
