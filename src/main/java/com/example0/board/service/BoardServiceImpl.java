@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
     private final BoardRepository boardRepository;
-
+//
     @Override
     public void insertBoard(BoardRequest boardRequest) {
         boardRepository.save(boardRequest.toEntity());
