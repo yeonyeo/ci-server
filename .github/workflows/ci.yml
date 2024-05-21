@@ -38,7 +38,7 @@ jobs:
         
       - name: chood
         run: chood 744 gradlew
-      
+        if : runner.os == 'ubuntu' || runner.os == 'macos'     
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
