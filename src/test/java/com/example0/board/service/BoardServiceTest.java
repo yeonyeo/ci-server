@@ -27,7 +27,7 @@ class BoardServiceTest {
 //        Board board = boardRepository.save(new Board());
 //        BoardRequest request = new BoardRequest(boardName, boardTitle);
 //        assertNotNull(board);
-        BoardRequest request = new BoardRequest("seoyeon","boardName");
+        BoardRequest request = new BoardRequest("seoyeon", "boardName");
         int size = boardRepository.findAll().size();
 
         //when
@@ -38,21 +38,44 @@ class BoardServiceTest {
 //        assertTrue(savedBoard.isPresent());
 //        assertEquals("boardTitl", savedBoard.get().getBoardTitle());
 //        assertEquals("boardName", savedBoard.get().getBoardName());
-        assertEquals(size+1,boardRepository.findAll().size());
+        assertEquals(size + 1, boardRepository.findAll().size());
     }
 
-    @Test
-    void getBoards() {
-        //given
-        Board board = boardRepository.save(new Board());
-        boardService.getBoards(request);
-        //when
-        //then
-    }
-    @Test
-    void getById(){
-        BoardRequest boardRequest = new BoardRequest("test","test");
-//        BDDMockito
-    }
+//    @Test
+//    void getBoards() {
+//        //given
+//        Board board = boardRepository.save(new Board());
+//        boardService.getBoards(request);
+//        //when
+//        //then}
+//    @Test
+//    void getById(){
+//        BoardRequest boardRequest = new BoardRequest("test","test");
+////        BDDMockito
+//    }
 
+    @Test
+    void deleteBoard() {
+//        BoardRequest request = new BoardRequest("seoyeon", "boardName");
+//        boardService.insertBoard(request);
+//        assertEquals(1, boardRepository.findAll().size());
+        Long id = 1L;
+        BDDMockito.doNothing().when(boardRepository).deleteById(id);
+        boardService.deleteBoard(id);
+        Optional<Board> board = boardRepository.findById(id);
+        assertTrue(board.isPresent());
+
+
+    }
+    @Test
+    void updateBoard() {
+        Long id = 1L;
+        BoardRequest request = new BoardRequest("seoyeon", "boardName");
+    }
+    @Test
+    void getBoard() {
+        Long id = 1L;
+        BoardRequest request = new BoardRequest("seoyeon", "boardName");
+
+    }
 }

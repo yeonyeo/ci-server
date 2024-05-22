@@ -9,4 +9,5 @@ import java.util.List;
 public interface BoardService {
     void insertBoard(BoardRequest boardRequest);
     List<Board> getBoards();
+    void deleteBoard(Long boardId);
 }
