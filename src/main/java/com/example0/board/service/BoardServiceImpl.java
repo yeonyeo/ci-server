@@ -24,6 +24,9 @@ public class BoardServiceImpl implements BoardService {
     public List<Board> getBoards() {
         return boardRepository.findAll();
     }
+    @Override
+    public void deleteBoard(Long boardId) {
+        boardRepository.deleteById(boardId);
 
-//////
+    }
 }
