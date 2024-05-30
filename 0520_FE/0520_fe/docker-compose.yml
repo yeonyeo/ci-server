@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  spring:
+    image: limseo/spring-test:latest
+    ports:
+      - 8080:8080
+
+    environment:
+      - profiles=default
+      - username=root
+      - password=1234
+
+  spring1:
+    image: limseo/spring-test:latest
+    ports:
+      - 8080:8080
+
+    environment:
+      - profiles=default
+      - username=root
+      - password=1234
+# docker run
+# --name spring
+# --network server
+# -p 8080:8080
+# -e profiles=prod
+# limseo/spring-test:latest
+
